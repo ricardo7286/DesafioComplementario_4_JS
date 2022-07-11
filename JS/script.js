@@ -174,6 +174,7 @@ function eliminarPaciente() {//Elimina un paciente por su nombre
     let nombre = prompt("Ingrese el nombre del paciente a eliminar");
     let apellidoPaterno = prompt("Ingrese el apellido paterno del paciente a eliminar");
     let encontrado = false;
+    let pacientes = JSON.parse(localStorage.getItem("pacientes"));
     for (let i = 0; i < pacientes.length; i++) {
         if (pacientes[i].nombre == nombre && pacientes[i].apellidoPaterno == apellidoPaterno) {
             pacientes.splice(i, 1);
@@ -188,6 +189,7 @@ function eliminarPaciente() {//Elimina un paciente por su nombre
 function modificarPaciente() {//Modifica los datos de un paciente
     let nombre = prompt("Ingrese el Nombre del paciente a modificar").toUpperCase();
     let apellidoPaterno = prompt("Ingrese el Apellido Paterno del paciente a modificar").toUpperCase();
+    let pacientes = JSON.parse(localStorage.getItem("pacientes"));
     let encontrado = false;
     for (let i = 0; i < pacientes.length; i++) {
         if (pacientes[i].nombre == nombre && pacientes[i].apellidoPaterno == apellidoPaterno) {
@@ -264,6 +266,7 @@ function modificarPaciente() {//Modifica los datos de un paciente
 
   function mostrarPacientes() {//FUNCION MOSTRAR PACIENTES
     document.getElementById("listaPacientes").innerHTML = "";//Limpia la lista de pacientes
+    let pacientes = JSON.parse(localStorage.getItem("pacientes"));
     for (let i = 0; i < pacientes.length; i++) {
         listaPacientes = document.createElement("div");//CREAMOS UN NUEVO DIV
         listaPacientes.innerHTML = `
